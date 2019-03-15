@@ -1,11 +1,10 @@
 /**
  * 由栈实现的队列
  */
-
 import Stack from '../lib/stack';
 
 export default class QueueByStack<T> {
-  stack: Stack<T> = new Stack<T>();
+  private stack: Stack<T> = new Stack<T>();
 
   length(): number { return this.stack.length(); }
 
