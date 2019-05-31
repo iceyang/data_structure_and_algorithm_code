@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 
-import { dynamic_programming_one } from './dynamic_programming';
+import * as dp from './dynamic_programming';
 import Item from './item';
 
 const items = new Array<Item>();
@@ -11,4 +11,5 @@ items.push(new Item(5, 6));
 
 const capacity = 8;
 
-expect(dynamic_programming_one(items, capacity)).to.equal(10);
+expect(dp.dynamic_programming_one(items, capacity)).to.equal(10);
+expect(dp.dynamic_programming_two(items, capacity)).to.equal(10);

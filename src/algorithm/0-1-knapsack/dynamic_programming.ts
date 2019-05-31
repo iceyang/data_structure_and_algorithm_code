@@ -26,3 +26,21 @@ export function dynamic_programming_one(items: Array<Item>, capacity: number): n
   }
   return result[length][capacity];
 }
+
+/**
+ * 优化版本，二维数组空间降为一维
+ */
+export function dynamic_programming_two(items: Array<Item>, capacity: number): number {
+  const length = items.length;
+  const result = new Array(capacity+1).fill(0);;
+
+  for (let i = 1; i <= length; i++) {
+    for (let c = capacity; c > 0; c--) {
+      const { weight, value } = items[i-1]; 
+      if (weight <= c && result[c] < result[c-weight]+value) {
+        result[c] = result[c-weight]+value;
+      }
+    }
+  }
+  return result[capacity];
+}
